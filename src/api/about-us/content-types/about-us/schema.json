@@ -15,16 +15,16 @@
       "type": "string"
     },
     "info": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "medicalProfessionalsInfo": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "blogFactChecked": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "authorsInfo": {
-      "type": "blocks"
+      "type": "richtext"
     }
   }
 }

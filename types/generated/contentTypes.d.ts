@@ -441,19 +441,19 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    authorsInfo: Schema.Attribute.Blocks;
-    blogFactChecked: Schema.Attribute.Blocks;
+    authorsInfo: Schema.Attribute.RichText;
+    blogFactChecked: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    info: Schema.Attribute.Blocks;
+    info: Schema.Attribute.RichText;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
-    medicalProfessionalsInfo: Schema.Attribute.Blocks;
+    medicalProfessionalsInfo: Schema.Attribute.RichText;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
