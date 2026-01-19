@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "aboutUs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "info": {
+      "type": "blocks"
+    },
+    "medicalProfessionalsInfo": {
+      "type": "blocks"
+    },
+    "blogFactChecked": {
+      "type": "blocks"
+    },
+    "authorsInfo": {
+      "type": "blocks"
+    }
+  }
+}
