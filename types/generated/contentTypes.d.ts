@@ -462,6 +462,98 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'faq';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMapLinkMapLink extends Struct.CollectionTypeSchema {
+  collectionName: 'map_links';
+  info: {
+    displayName: 'mapLink';
+    pluralName: 'map-links';
+    singularName: 'map-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    links: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::map-link.map-link'
+    > &
+      Schema.Attribute.Private;
+    locationSlug: Schema.Attribute.String;
+    parentLocSlug: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRefrealRefreal extends Struct.CollectionTypeSchema {
+  collectionName: 'refreals';
+  info: {
+    displayName: 'refreal';
+    pluralName: 'refreals';
+    singularName: 'refreal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::refreal.refreal'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Schema.Attribute.String;
+    pleaseNote: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    radioTitle: Schema.Attribute.String;
+    radioValue1: Schema.Attribute.String;
+    radioValue2: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestingTesting extends Struct.CollectionTypeSchema {
   collectionName: 'testings';
   info: {
@@ -1002,6 +1094,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::faq.faq': ApiFaqFaq;
+      'api::map-link.map-link': ApiMapLinkMapLink;
+      'api::refreal.refreal': ApiRefrealRefreal;
       'api::testing.testing': ApiTestingTesting;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

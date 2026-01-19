@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "refreals",
+  "info": {
+    "singularName": "refreal",
+    "pluralName": "refreals",
+    "displayName": "refreal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "radioTitle": {
+      "type": "string"
+    },
+    "radioValue1": {
+      "type": "string"
+    },
+    "radioValue2": {
+      "type": "string"
+    },
+    "pleaseNote": {
+      "type": "text"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "metaImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
