@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "institute_faqs",
+  "info": {
+    "singularName": "institute-faq",
+    "pluralName": "institute-faqs",
+    "displayName": "instituteFAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answer": {
+      "type": "richtext"
+    }
+  }
+}

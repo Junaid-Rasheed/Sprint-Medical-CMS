@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "healthcalcies",
+  "info": {
+    "singularName": "healthcalcy",
+    "pluralName": "healthcalcies",
+    "displayName": "healthcalcy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "descriptionFooter": {
+      "type": "richtext"
+    },
+    "schema1": {
+      "type": "text"
+    },
+    "schema2": {
+      "type": "text"
+    }
+  }
+}

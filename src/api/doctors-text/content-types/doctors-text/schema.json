@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors_texts",
+  "info": {
+    "singularName": "doctors-text",
+    "pluralName": "doctors-texts",
+    "displayName": "doctorsText"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title1": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "desc1": {
+      "type": "text"
+    },
+    "desc2": {
+      "type": "text"
+    }
+  }
+}

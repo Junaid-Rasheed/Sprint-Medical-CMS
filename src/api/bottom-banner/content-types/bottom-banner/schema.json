@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bottom_banners",
+  "info": {
+    "singularName": "bottom-banner",
+    "pluralName": "bottom-banners",
+    "displayName": "bottomBanner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "btnName": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    },
+    "path": {
+      "type": "string"
+    }
+  }
+}

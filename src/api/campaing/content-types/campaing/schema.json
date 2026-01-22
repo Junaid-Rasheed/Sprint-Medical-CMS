@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campaings",
+  "info": {
+    "singularName": "campaing",
+    "pluralName": "campaings",
+    "displayName": "campaing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
