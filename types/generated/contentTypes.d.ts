@@ -525,30 +525,59 @@ export interface ApiButtonButton extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCampaingCampaing extends Struct.CollectionTypeSchema {
-  collectionName: 'campaings';
+export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
+  collectionName: 'campaigns';
   info: {
-    displayName: 'campaing';
-    pluralName: 'campaings';
-    singularName: 'campaing';
+    displayName: 'campaign';
+    pluralName: 'campaigns';
+    singularName: 'campaign';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    bottomBanner1: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bottom-banner.bottom-banner'
+    >;
+    bottomBanner2: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bottom-banner.bottom-banner'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    features: Schema.Attribute.Relation<'oneToOne', 'api::feature.feature'>;
+    features2: Schema.Attribute.Relation<'oneToOne', 'api::feature.feature'>;
+    features3: Schema.Attribute.Relation<'oneToOne', 'api::feature.feature'>;
+    heroHeader: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::hero-header.hero-header'
+    >;
+    listPage: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::campaing.campaing'
+      'api::campaign.campaign'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Schema.Attribute.String;
+    prices: Schema.Attribute.Relation<'oneToMany', 'api::price.price'>;
     publishedAt: Schema.Attribute.DateTime;
+    subscriptionTitle: Schema.Attribute.String;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    worldClassHealth: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::world-class-health.world-class-health'
+    >;
   };
 }
 
@@ -638,6 +667,41 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFeatureFeature extends Struct.CollectionTypeSchema {
+  collectionName: 'features';
+  info: {
+    displayName: 'feature';
+    pluralName: 'features';
+    singularName: 'feature';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    btnName: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featureList: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::image-list.image-list'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::feature.feature'
+    > &
+      Schema.Attribute.Private;
+    path: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visible: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ApiHealthcalcyHealthcalcy extends Struct.CollectionTypeSchema {
   collectionName: 'healthcalcies';
   info: {
@@ -667,6 +731,36 @@ export interface ApiHealthcalcyHealthcalcy extends Struct.CollectionTypeSchema {
     schema1: Schema.Attribute.Text;
     schema2: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeroHeaderHeroHeader extends Struct.CollectionTypeSchema {
+  collectionName: 'hero_headers';
+  info: {
+    displayName: 'heroHeader';
+    pluralName: 'hero-headers';
+    singularName: 'hero-header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttons: Schema.Attribute.Relation<'oneToMany', 'api::button.button'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-header.hero-header'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -756,6 +850,34 @@ export interface ApiMapLinkMapLink extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locationSlug: Schema.Attribute.String;
     parentLocSlug: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPricePrice extends Struct.CollectionTypeSchema {
+  collectionName: 'prices';
+  info: {
+    displayName: 'price';
+    pluralName: 'prices';
+    singularName: 'price';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    highlightText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::price.price'> &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.String;
+    priceGst: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -886,6 +1008,40 @@ export interface ApiTestingTesting extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWorldClassHealthWorldClassHealth
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'world_class_healths';
+  info: {
+    displayName: 'worldClassHealth';
+    pluralName: 'world-class-healths';
+    singularName: 'world-class-health';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    btnName: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desc1: Schema.Attribute.RichText;
+    desc2: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::world-class-health.world-class-health'
+    > &
+      Schema.Attribute.Private;
+    path: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visible: Schema.Attribute.Boolean;
   };
 }
 
@@ -1402,18 +1558,22 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::bottom-banner.bottom-banner': ApiBottomBannerBottomBanner;
       'api::button.button': ApiButtonButton;
-      'api::campaing.campaing': ApiCampaingCampaing;
+      'api::campaign.campaign': ApiCampaignCampaign;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::doctors-text.doctors-text': ApiDoctorsTextDoctorsText;
       'api::faq.faq': ApiFaqFaq;
+      'api::feature.feature': ApiFeatureFeature;
       'api::healthcalcy.healthcalcy': ApiHealthcalcyHealthcalcy;
+      'api::hero-header.hero-header': ApiHeroHeaderHeroHeader;
       'api::image-list.image-list': ApiImageListImageList;
       'api::institute-faq.institute-faq': ApiInstituteFaqInstituteFaq;
       'api::map-link.map-link': ApiMapLinkMapLink;
+      'api::price.price': ApiPricePrice;
       'api::refreal.refreal': ApiRefrealRefreal;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testing.testing': ApiTestingTesting;
+      'api::world-class-health.world-class-health': ApiWorldClassHealthWorldClassHealth;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

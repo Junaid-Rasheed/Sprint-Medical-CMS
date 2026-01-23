@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "features",
+  "info": {
+    "singularName": "feature",
+    "pluralName": "features",
+    "displayName": "feature"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "featureList": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image-list.image-list"
+    },
+    "btnName": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  }
+}

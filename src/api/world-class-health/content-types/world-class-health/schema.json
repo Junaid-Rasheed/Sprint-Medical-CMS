@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "world_class_healths",
+  "info": {
+    "singularName": "world-class-health",
+    "pluralName": "world-class-healths",
+    "displayName": "worldClassHealth"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc1": {
+      "type": "richtext"
+    },
+    "desc2": {
+      "type": "richtext"
+    },
+    "btnName": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  }
+}
