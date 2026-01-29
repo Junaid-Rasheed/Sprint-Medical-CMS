@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "blogPost"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    },
+    "credentials": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-category.blog-category"
+    },
+    "title": {
+      "type": "string"
+    },
+    "introduction": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "postImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "readTime": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string"
+    },
+    "RelatedPosts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post"
+    },
+    "blogCategorySlugs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-category.blog-category"
+    },
+    "metaImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "FactChecked": {
+      "type": "richtext"
+    },
+    "references": {
+      "type": "richtext"
+    },
+    "faqTitle": {
+      "type": "string"
+    },
+    "blogFaqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::institute-faq.institute-faq"
+    },
+    "faqSchema": {
+      "type": "text"
+    }
+  }
+}
