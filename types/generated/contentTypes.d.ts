@@ -770,6 +770,89 @@ export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
+  collectionName: 'doctors';
+  info: {
+    displayName: 'doctor';
+    pluralName: 'doctors';
+    singularName: 'doctor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    activities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activitie.activitie'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    degree: Schema.Attribute.String;
+    experience: Schema.Attribute.String;
+    fee: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    info: Schema.Attribute.RichText;
+    institutes: Schema.Attribute.Enumeration<
+      ['digestivedisease ', 'gastroenterology']
+    >;
+    institutesSlug: Schema.Attribute.Enumeration<['Slug1', 'Slug2']>;
+    listing: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doctor.doctor'
+    > &
+      Schema.Attribute.Private;
+    locationName: Schema.Attribute.Enumeration<['test1', 'test2']>;
+    metaDescription: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    speciality: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDoctorsAndInstituteDoctorsAndInstitute
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'doctors_and_institutes';
+  info: {
+    displayName: 'doctorsAndInstitute';
+    pluralName: 'doctors-and-institutes';
+    singularName: 'doctors-and-institute';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    btnName: Schema.Attribute.String;
+    btnVisible: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doctors-and-institute.doctors-and-institute'
+    > &
+      Schema.Attribute.Private;
+    path: Schema.Attribute.String;
+    positionText: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDoctorsTextDoctorsText extends Struct.CollectionTypeSchema {
   collectionName: 'doctors_texts';
   info: {
@@ -1724,6 +1807,8 @@ declare module '@strapi/strapi' {
       'api::button.button': ApiButtonButton;
       'api::campaign.campaign': ApiCampaignCampaign;
       'api::coupon.coupon': ApiCouponCoupon;
+      'api::doctor.doctor': ApiDoctorDoctor;
+      'api::doctors-and-institute.doctors-and-institute': ApiDoctorsAndInstituteDoctorsAndInstitute;
       'api::doctors-text.doctors-text': ApiDoctorsTextDoctorsText;
       'api::faq.faq': ApiFaqFaq;
       'api::feature.feature': ApiFeatureFeature;

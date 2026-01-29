@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "doctor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "speciality": {
+      "type": "string"
+    },
+    "info": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "fee": {
+      "type": "integer"
+    },
+    "institutes": {
+      "type": "enumeration",
+      "enum": [
+        "digestivedisease ",
+        "gastroenterology"
+      ]
+    },
+    "activities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activitie.activitie"
+    },
+    "degree": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    },
+    "locationName": {
+      "type": "enumeration",
+      "enum": [
+        "test1",
+        "test2"
+      ]
+    },
+    "listing": {
+      "type": "boolean"
+    },
+    "institutesSlug": {
+      "type": "enumeration",
+      "enum": [
+        "Slug1",
+        "Slug2"
+      ]
+    }
+  }
+}
