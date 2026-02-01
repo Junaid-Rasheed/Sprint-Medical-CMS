@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location_institutes",
+  "info": {
+    "singularName": "location-institute",
+    "pluralName": "location-institutes",
+    "displayName": "locationInstitute"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "locationName": {
+      "type": "string"
+    },
+    "locationTitle": {
+      "type": "string"
+    },
+    "instituteDescription": {
+      "type": "richtext"
+    },
+    "metaTittle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "InstituteFAQ": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::institute-faq.institute-faq"
+    },
+    "schema1": {
+      "type": "json"
+    },
+    "schema2": {
+      "type": "json"
+    },
+    "schema3": {
+      "type": "json"
+    },
+    "schema4": {
+      "type": "json"
+    },
+    "schema5": {
+      "type": "json"
+    },
+    "bottomBanner1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bottom-banner.bottom-banner"
+    },
+    "bottomBanner2": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bottom-banner.bottom-banner"
+    },
+    "mapLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::map-link.map-link"
+    }
+  }
+}

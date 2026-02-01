@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "institutes",
+  "info": {
+    "singularName": "institute",
+    "pluralName": "institutes",
+    "displayName": "Institute"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "shortInfo": {
+      "type": "string"
+    },
+    "info": {
+      "type": "richtext"
+    },
+    "headerInfo": {
+      "type": "richtext"
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::institute-faq.institute-faq"
+    },
+    "schema": {
+      "type": "json"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "specialityDoctor": {
+      "type": "string"
+    },
+    "doc_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "metaSchema": {
+      "type": "richtext"
+    },
+    "speciality_meta_description": {
+      "type": "text"
+    },
+    "speciality_title": {
+      "type": "string"
+    },
+    "speciality_description": {
+      "type": "richtext"
+    },
+    "doctor_slug": {
+      "type": "string"
+    },
+    "locationIcons": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "locationTitle": {
+      "type": "string"
+    },
+    "locationSlug": {
+      "type": "string"
+    },
+    "subInstitutesVisible": {
+      "type": "boolean"
+    },
+    "subInstitutesSlug": {
+      "type": "enumeration",
+      "enum": [
+        "subInstitutesSlug1",
+        "subInstitutesSlug2",
+        "subInstitutesSlug3",
+        "subInstitutesSlug4"
+      ]
+    },
+    "doctorSlug1": {
+      "type": "string"
+    },
+    "locationInstitutes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location-institute.location-institute"
+    },
+    "doctorFaqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::institute-faq.institute-faq"
+    }
+  }
+}

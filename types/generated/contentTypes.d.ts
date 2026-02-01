@@ -1070,6 +1070,127 @@ export interface ApiInstituteFaqInstituteFaq
   };
 }
 
+export interface ApiInstituteInstitute extends Struct.CollectionTypeSchema {
+  collectionName: 'institutes';
+  info: {
+    displayName: 'Institute';
+    pluralName: 'institutes';
+    singularName: 'institute';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    doc_image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    doctor_slug: Schema.Attribute.String;
+    doctorFaqs: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institute-faq.institute-faq'
+    >;
+    doctorSlug1: Schema.Attribute.String;
+    faqs: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institute-faq.institute-faq'
+    >;
+    headerInfo: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    info: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institute.institute'
+    > &
+      Schema.Attribute.Private;
+    locationIcons: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locationInstitutes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location-institute.location-institute'
+    >;
+    locationSlug: Schema.Attribute.String;
+    locationTitle: Schema.Attribute.String;
+    meta_title: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.Text;
+    metaSchema: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    schema: Schema.Attribute.JSON;
+    shortInfo: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+    speciality_description: Schema.Attribute.RichText;
+    speciality_meta_description: Schema.Attribute.Text;
+    speciality_title: Schema.Attribute.String;
+    specialityDoctor: Schema.Attribute.String;
+    subInstitutesSlug: Schema.Attribute.Enumeration<
+      [
+        'subInstitutesSlug1',
+        'subInstitutesSlug2',
+        'subInstitutesSlug3',
+        'subInstitutesSlug4',
+      ]
+    >;
+    subInstitutesVisible: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLocationInstituteLocationInstitute
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'location_institutes';
+  info: {
+    displayName: 'locationInstitute';
+    pluralName: 'location-institutes';
+    singularName: 'location-institute';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bottomBanner1: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bottom-banner.bottom-banner'
+    >;
+    bottomBanner2: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::bottom-banner.bottom-banner'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    instituteDescription: Schema.Attribute.RichText;
+    InstituteFAQ: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institute-faq.institute-faq'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location-institute.location-institute'
+    > &
+      Schema.Attribute.Private;
+    locationName: Schema.Attribute.String;
+    locationTitle: Schema.Attribute.String;
+    mapLinks: Schema.Attribute.Relation<'oneToMany', 'api::map-link.map-link'>;
+    metaDescription: Schema.Attribute.String;
+    metaTittle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    schema1: Schema.Attribute.JSON;
+    schema2: Schema.Attribute.JSON;
+    schema3: Schema.Attribute.JSON;
+    schema4: Schema.Attribute.JSON;
+    schema5: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMapLinkMapLink extends Struct.CollectionTypeSchema {
   collectionName: 'map_links';
   info: {
@@ -1816,6 +1937,8 @@ declare module '@strapi/strapi' {
       'api::hero-header.hero-header': ApiHeroHeaderHeroHeader;
       'api::image-list.image-list': ApiImageListImageList;
       'api::institute-faq.institute-faq': ApiInstituteFaqInstituteFaq;
+      'api::institute.institute': ApiInstituteInstitute;
+      'api::location-institute.location-institute': ApiLocationInstituteLocationInstitute;
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::price.price': ApiPricePrice;
       'api::refreal.refreal': ApiRefrealRefreal;
