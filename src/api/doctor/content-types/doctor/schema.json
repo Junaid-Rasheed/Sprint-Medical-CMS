@@ -39,18 +39,6 @@
     "fee": {
       "type": "integer"
     },
-    "institutes": {
-      "type": "enumeration",
-      "enum": [
-        "digestivedisease ",
-        "gastroenterology"
-      ]
-    },
-    "activities": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::activitie.activitie"
-    },
     "degree": {
       "type": "string"
     },
@@ -73,6 +61,12 @@
         "Slug1",
         "Slug2"
       ]
+    },
+    "institute": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::institute.institute",
+      "inversedBy": "doctors"
     }
   }
 }

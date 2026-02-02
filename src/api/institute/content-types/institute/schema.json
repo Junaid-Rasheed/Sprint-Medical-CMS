@@ -118,6 +118,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::institute-faq.institute-faq"
+    },
+    "doctors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doctor.doctor",
+      "mappedBy": "institute"
     }
   }
 }

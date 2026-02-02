@@ -781,10 +781,6 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    activities: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::activitie.activitie'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -796,8 +792,9 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
       true
     >;
     info: Schema.Attribute.RichText;
-    institutes: Schema.Attribute.Enumeration<
-      ['digestivedisease ', 'gastroenterology']
+    institute: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::institute.institute'
     >;
     institutesSlug: Schema.Attribute.Enumeration<['Slug1', 'Slug2']>;
     listing: Schema.Attribute.Boolean;
@@ -1090,6 +1087,7 @@ export interface ApiInstituteInstitute extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::institute-faq.institute-faq'
     >;
+    doctors: Schema.Attribute.Relation<'manyToMany', 'api::doctor.doctor'>;
     doctorSlug1: Schema.Attribute.String;
     faqs: Schema.Attribute.Relation<
       'oneToMany',
