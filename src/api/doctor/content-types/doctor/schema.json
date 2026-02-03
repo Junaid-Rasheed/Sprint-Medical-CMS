@@ -62,7 +62,7 @@
         "Slug2"
       ]
     },
-    "institute": {
+    "institutes": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::institute.institute",

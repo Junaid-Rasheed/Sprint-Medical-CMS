@@ -792,7 +792,7 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
       true
     >;
     info: Schema.Attribute.RichText;
-    institute: Schema.Attribute.Relation<
+    institutes: Schema.Attribute.Relation<
       'manyToMany',
       'api::institute.institute'
     >;
