@@ -796,7 +796,6 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::institute.institute'
     >;
-    institutesSlug: Schema.Attribute.Enumeration<['Slug1', 'Slug2']>;
     listing: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

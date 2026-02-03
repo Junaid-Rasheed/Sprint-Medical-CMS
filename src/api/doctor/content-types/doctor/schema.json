@@ -55,13 +55,6 @@
     "listing": {
       "type": "boolean"
     },
-    "institutesSlug": {
-      "type": "enumeration",
-      "enum": [
-        "Slug1",
-        "Slug2"
-      ]
-    },
     "institutes": {
       "type": "relation",
       "relation": "manyToMany",
