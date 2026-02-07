@@ -803,7 +803,6 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
       'api::doctor.doctor'
     > &
       Schema.Attribute.Private;
-    locationName: Schema.Attribute.Enumeration<['test1', 'test2']>;
     metaDescription: Schema.Attribute.Text;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
