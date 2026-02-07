@@ -57,11 +57,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::map-link.map-link"
-    },
-    "subLocations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sub-location.sub-location"
     }
   }
 }

@@ -1223,7 +1223,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.String;
     subLocations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::location.location'
+      'api::sub-location.sub-location'
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1319,6 +1319,35 @@ export interface ApiRefrealRefreal extends Struct.CollectionTypeSchema {
     radioValue1: Schema.Attribute.String;
     radioValue2: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSubLocationSubLocation extends Struct.CollectionTypeSchema {
+  collectionName: 'sub_locations';
+  info: {
+    displayName: 'subLocation';
+    pluralName: 'sub-locations';
+    singularName: 'sub-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-location.sub-location'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1983,6 +2012,7 @@ declare module '@strapi/strapi' {
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::price.price': ApiPricePrice;
       'api::refreal.refreal': ApiRefrealRefreal;
+      'api::sub-location.sub-location': ApiSubLocationSubLocation;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testing.testing': ApiTestingTesting;
