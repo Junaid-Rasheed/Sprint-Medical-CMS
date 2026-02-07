@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_locations",
+  "info": {
+    "singularName": "sub-location",
+    "pluralName": "sub-locations",
+    "displayName": "subLocation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

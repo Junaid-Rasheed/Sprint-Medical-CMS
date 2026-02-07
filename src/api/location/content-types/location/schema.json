@@ -61,7 +61,7 @@
     "subLocations": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::location.location"
+      "target": "api::sub-location.sub-location"
     }
   }
 }
