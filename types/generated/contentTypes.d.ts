@@ -1221,10 +1221,6 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String;
-    subLocations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::sub-location.sub-location'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
