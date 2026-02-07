@@ -14,11 +14,6 @@
     "locationName": {
       "type": "string"
     },
-    "subLocations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::location.location"
-    },
     "slug": {
       "type": "string"
     },

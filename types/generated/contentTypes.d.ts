@@ -1188,6 +1188,49 @@ export interface ApiLocationInstituteLocationInstitute
   };
 }
 
+export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
+  collectionName: 'locations';
+  info: {
+    displayName: 'location';
+    pluralName: 'locations';
+    singularName: 'location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    doctorImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    eclinicImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location.location'
+    > &
+      Schema.Attribute.Private;
+    locationName: Schema.Attribute.String;
+    mapLinks: Schema.Attribute.Relation<'oneToMany', 'api::map-link.map-link'>;
+    metaDescription: Schema.Attribute.Text;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    subLocations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location.location'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMapLinkMapLink extends Struct.CollectionTypeSchema {
   collectionName: 'map_links';
   info: {
@@ -1936,6 +1979,7 @@ declare module '@strapi/strapi' {
       'api::institute-faq.institute-faq': ApiInstituteFaqInstituteFaq;
       'api::institute.institute': ApiInstituteInstitute;
       'api::location-institute.location-institute': ApiLocationInstituteLocationInstitute;
+      'api::location.location': ApiLocationLocation;
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::price.price': ApiPricePrice;
       'api::refreal.refreal': ApiRefrealRefreal;
