@@ -1221,6 +1221,10 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String;
+    subLocations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-location.sub-location'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1315,6 +1319,46 @@ export interface ApiRefrealRefreal extends Struct.CollectionTypeSchema {
     radioValue1: Schema.Attribute.String;
     radioValue2: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiResourceResource extends Struct.CollectionTypeSchema {
+  collectionName: 'resources';
+  info: {
+    displayName: 'resource';
+    pluralName: 'resources';
+    singularName: 'resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backendText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desc1: Schema.Attribute.RichText;
+    desc2: Schema.Attribute.RichText;
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource.resource'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    schema1: Schema.Attribute.Text;
+    schema2: Schema.Attribute.Text;
+    schema3: Schema.Attribute.Text;
+    slug: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2008,6 +2052,7 @@ declare module '@strapi/strapi' {
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::price.price': ApiPricePrice;
       'api::refreal.refreal': ApiRefrealRefreal;
+      'api::resource.resource': ApiResourceResource;
       'api::sub-location.sub-location': ApiSubLocationSubLocation;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
