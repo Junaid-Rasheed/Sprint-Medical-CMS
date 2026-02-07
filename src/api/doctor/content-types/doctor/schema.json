@@ -45,13 +45,6 @@
     "experience": {
       "type": "string"
     },
-    "locationName": {
-      "type": "enumeration",
-      "enum": [
-        "test1",
-        "test2"
-      ]
-    },
     "listing": {
       "type": "boolean"
     },
