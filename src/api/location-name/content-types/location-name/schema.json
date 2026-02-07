@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location_names",
+  "info": {
+    "singularName": "location-name",
+    "pluralName": "location-names",
+    "displayName": "locationName"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

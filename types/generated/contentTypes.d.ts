@@ -1187,6 +1187,36 @@ export interface ApiLocationInstituteLocationInstitute
   };
 }
 
+export interface ApiLocationNameLocationName
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'location_names';
+  info: {
+    displayName: 'locationName';
+    pluralName: 'location-names';
+    singularName: 'location-name';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location-name.location-name'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -2047,6 +2077,7 @@ declare module '@strapi/strapi' {
       'api::institute-faq.institute-faq': ApiInstituteFaqInstituteFaq;
       'api::institute.institute': ApiInstituteInstitute;
       'api::location-institute.location-institute': ApiLocationInstituteLocationInstitute;
+      'api::location-name.location-name': ApiLocationNameLocationName;
       'api::location.location': ApiLocationLocation;
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::price.price': ApiPricePrice;

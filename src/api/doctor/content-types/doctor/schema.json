@@ -53,6 +53,11 @@
       "relation": "manyToMany",
       "target": "api::institute.institute",
       "inversedBy": "doctors"
+    },
+    "locationName": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location-name.location-name"
     }
   }
 }
