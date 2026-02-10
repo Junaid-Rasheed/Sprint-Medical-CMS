@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_links",
+  "info": {
+    "singularName": "video-link",
+    "pluralName": "video-links",
+    "displayName": "VideoLink"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "YoutubeLink": {
+      "type": "string"
+    }
+  }
+}

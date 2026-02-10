@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "singularName": "gallery",
+    "pluralName": "galleries",
+    "displayName": "Gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video-link.video-link"
+    }
+  }
+}

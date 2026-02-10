@@ -803,6 +803,10 @@ export interface ApiDoctorDoctor extends Struct.CollectionTypeSchema {
       'api::doctor.doctor'
     > &
       Schema.Attribute.Private;
+    locationName: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location-name.location-name'
+    >;
     metaDescription: Schema.Attribute.Text;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -937,6 +941,41 @@ export interface ApiFeatureFeature extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     visible: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
+  collectionName: 'galleries';
+  info: {
+    displayName: 'Gallery';
+    pluralName: 'galleries';
+    singularName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery.gallery'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::video-link.video-link'
+    >;
   };
 }
 
@@ -1513,6 +1552,35 @@ export interface ApiTestingTesting extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiVideoLinkVideoLink extends Struct.CollectionTypeSchema {
+  collectionName: 'video_links';
+  info: {
+    displayName: 'VideoLink';
+    pluralName: 'video-links';
+    singularName: 'video-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::video-link.video-link'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    YoutubeLink: Schema.Attribute.String;
+  };
+}
+
 export interface ApiWorldClassHealthWorldClassHealth
   extends Struct.CollectionTypeSchema {
   collectionName: 'world_class_healths';
@@ -2071,6 +2139,7 @@ declare module '@strapi/strapi' {
       'api::doctors-text.doctors-text': ApiDoctorsTextDoctorsText;
       'api::faq.faq': ApiFaqFaq;
       'api::feature.feature': ApiFeatureFeature;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::healthcalcy.healthcalcy': ApiHealthcalcyHealthcalcy;
       'api::hero-header.hero-header': ApiHeroHeaderHeroHeader;
       'api::image-list.image-list': ApiImageListImageList;
@@ -2087,6 +2156,7 @@ declare module '@strapi/strapi' {
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testing.testing': ApiTestingTesting;
+      'api::video-link.video-link': ApiVideoLinkVideoLink;
       'api::world-class-health.world-class-health': ApiWorldClassHealthWorldClassHealth;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
