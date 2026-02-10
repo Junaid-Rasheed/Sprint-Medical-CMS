@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "e_clinics",
+  "info": {
+    "singularName": "e-clinic",
+    "pluralName": "e-clinics",
+    "displayName": "E-Clinic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "info": {
+      "type": "richtext"
+    },
+    "MapLink": {
+      "type": "text"
+    },
+    "schema": {
+      "type": "text"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "locationSlug": {
+      "type": "text"
+    },
+    "parentLocSlug": {
+      "type": "string"
+    }
+  }
+}

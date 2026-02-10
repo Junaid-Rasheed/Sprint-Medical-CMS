@@ -741,6 +741,35 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    displayName: 'ContactUs';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Address: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Eclicks: Schema.Attribute.Relation<'oneToMany', 'api::e-clinic.e-clinic'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
   collectionName: 'coupons';
   info: {
@@ -877,6 +906,41 @@ export interface ApiDoctorsTextDoctorsText extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     title1: Schema.Attribute.String;
     title2: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEClinicEClinic extends Struct.CollectionTypeSchema {
+  collectionName: 'e_clinics';
+  info: {
+    displayName: 'E-Clinic';
+    pluralName: 'e-clinics';
+    singularName: 'e-clinic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::e-clinic.e-clinic'
+    > &
+      Schema.Attribute.Private;
+    locationSlug: Schema.Attribute.Text;
+    MapLink: Schema.Attribute.Text;
+    metaDescription: Schema.Attribute.Text;
+    parentLocSlug: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    schema: Schema.Attribute.Text;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2168,10 +2232,12 @@ declare module '@strapi/strapi' {
       'api::bottom-banner.bottom-banner': ApiBottomBannerBottomBanner;
       'api::button.button': ApiButtonButton;
       'api::campaign.campaign': ApiCampaignCampaign;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::doctors-and-institute.doctors-and-institute': ApiDoctorsAndInstituteDoctorsAndInstitute;
       'api::doctors-text.doctors-text': ApiDoctorsTextDoctorsText;
+      'api::e-clinic.e-clinic': ApiEClinicEClinic;
       'api::faq.faq': ApiFaqFaq;
       'api::feature.feature': ApiFeatureFeature;
       'api::gallery.gallery': ApiGalleryGallery;
