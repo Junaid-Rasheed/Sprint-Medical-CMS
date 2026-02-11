@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chat_pages",
+  "info": {
+    "singularName": "chat-page",
+    "pluralName": "chat-pages",
+    "displayName": "chatPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_header": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hero-header.hero-header"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "doctorsAndInstitutes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::doctors-and-institute.doctors-and-institute"
+    },
+    "instituteFaq": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::institute-faq.institute-faq"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "schema1": {
+      "type": "text"
+    },
+    "schema2": {
+      "type": "text"
+    }
+  }
+}

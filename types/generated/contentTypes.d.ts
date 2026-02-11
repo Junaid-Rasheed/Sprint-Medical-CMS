@@ -741,6 +741,51 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiChatPageChatPage extends Struct.CollectionTypeSchema {
+  collectionName: 'chat_pages';
+  info: {
+    displayName: 'chatPage';
+    pluralName: 'chat-pages';
+    singularName: 'chat-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    doctorsAndInstitutes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doctors-and-institute.doctors-and-institute'
+    >;
+    hero_header: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::hero-header.hero-header'
+    >;
+    instituteFaq: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institute-faq.institute-faq'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::chat-page.chat-page'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    schema1: Schema.Attribute.Text;
+    schema2: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
   collectionName: 'contact_uses';
   info: {
@@ -2232,6 +2277,7 @@ declare module '@strapi/strapi' {
       'api::bottom-banner.bottom-banner': ApiBottomBannerBottomBanner;
       'api::button.button': ApiButtonButton;
       'api::campaign.campaign': ApiCampaignCampaign;
+      'api::chat-page.chat-page': ApiChatPageChatPage;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::doctor.doctor': ApiDoctorDoctor;
