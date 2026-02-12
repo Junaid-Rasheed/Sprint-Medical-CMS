@@ -1729,6 +1729,37 @@ export interface ApiTermsOfServiceTermsOfService
   };
 }
 
+export interface ApiTermsofServiceTermsofService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'termsof_services';
+  info: {
+    displayName: 'TermsofService';
+    pluralName: 'termsof-services';
+    singularName: 'termsof-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    listPage: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::termsof-service.termsof-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
@@ -2398,6 +2429,7 @@ declare module '@strapi/strapi' {
       'api::resource.resource': ApiResourceResource;
       'api::sub-location.sub-location': ApiSubLocationSubLocation;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
+      'api::termsof-service.termsof-service': ApiTermsofServiceTermsofService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testing.testing': ApiTestingTesting;
       'api::video-link.video-link': ApiVideoLinkVideoLink;
