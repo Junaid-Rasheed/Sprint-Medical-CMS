@@ -1502,6 +1502,68 @@ export interface ApiPricePrice extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    displayName: 'privacyPolicy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    listPage: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyStatementPrivacyStatement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'privacy_statements';
+  info: {
+    displayName: 'privacyStatement';
+    pluralName: 'privacy-statements';
+    singularName: 'privacy-statement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    listPage: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-statement.privacy-statement'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRefrealRefreal extends Struct.CollectionTypeSchema {
   collectionName: 'refreals';
   info: {
@@ -1530,6 +1592,37 @@ export interface ApiRefrealRefreal extends Struct.CollectionTypeSchema {
     radioTitle: Schema.Attribute.String;
     radioValue1: Schema.Attribute.String;
     radioValue2: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRefundPolicyRefundPolicy
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'refund_policies';
+  info: {
+    displayName: 'refundPolicy';
+    pluralName: 'refund-policies';
+    singularName: 'refund-policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    listPage: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::refund-policy.refund-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2298,7 +2391,10 @@ declare module '@strapi/strapi' {
       'api::map-link.map-link': ApiMapLinkMapLink;
       'api::package.package': ApiPackagePackage;
       'api::price.price': ApiPricePrice;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::privacy-statement.privacy-statement': ApiPrivacyStatementPrivacyStatement;
       'api::refreal.refreal': ApiRefrealRefreal;
+      'api::refund-policy.refund-policy': ApiRefundPolicyRefundPolicy;
       'api::resource.resource': ApiResourceResource;
       'api::sub-location.sub-location': ApiSubLocationSubLocation;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
