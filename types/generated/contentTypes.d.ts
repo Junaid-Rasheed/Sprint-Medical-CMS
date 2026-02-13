@@ -622,6 +622,35 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBookAppointmentBookAppointment
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'book_appointments';
+  info: {
+    displayName: 'BookAppointment';
+    pluralName: 'book-appointments';
+    singularName: 'book-appointment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::book-appointment.book-appointment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBottomBannerBottomBanner
   extends Struct.CollectionTypeSchema {
   collectionName: 'bottom_banners';
@@ -2398,6 +2427,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::book-appointment.book-appointment': ApiBookAppointmentBookAppointment;
       'api::bottom-banner.bottom-banner': ApiBottomBannerBottomBanner;
       'api::button.button': ApiButtonButton;
       'api::campaign.campaign': ApiCampaignCampaign;

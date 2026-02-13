@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "book_appointments",
+  "info": {
+    "singularName": "book-appointment",
+    "pluralName": "book-appointments",
+    "displayName": "BookAppointment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "info": {
+      "type": "richtext"
+    }
+  }
+}
